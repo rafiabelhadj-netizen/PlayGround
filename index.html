@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
+  <meta name="theme-color" content="#101513" />
+  <title>Tunis Moto Life — Free Ride</title>
+  <link rel="icon" href="data:,">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+  <script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.161.0/build/three.module.js"}}</script>
+</head>
+<body>
+  <main id="game">
+    <canvas id="world"></canvas>
+    <div class="vignette"></div>
+    <header class="topbar">
+      <div class="brand"><div class="brand-mark">TM<span>✦</span></div><div><div class="brand-name">TUNIS <b>MOTO LIFE</b></div><div class="brand-sub">FREE RIDE · TUNIS, TUNISIA</div></div></div>
+      <div class="top-actions">
+        <div class="wallet"><span class="coin">◆</span><strong id="money">2,450</strong><small>DT</small></div>
+        <button class="icon-btn" id="sound-toggle" aria-label="Toggle sound">♫</button>
+        <button class="icon-btn" id="pause-btn" aria-label="Pause">Ⅱ</button>
+      </div>
+    </header>
+    <section class="location-card"><span class="live-dot"></span><div><small>YOU ARE RIDING IN</small><strong id="district">LA MÉDINA</strong></div><span class="loc-sep"></span><div class="weather">☀ <span>24°</span></div></section>
+    <div class="mission-chip"><span class="mission-icon">↗</span><div><small>FREE RIDE</small><strong>Explore the city</strong></div><span class="mission-arrow">›</span></div>
+
+    <section class="vehicle-hud" aria-live="polite">
+      <div class="speed-block"><span class="speed-label">KM/H</span><div class="speed-row"><strong id="speed">000</strong><span class="speed-unit">km/h</span></div><div class="speed-track"><i id="speed-fill"></i></div></div>
+      <div class="hud-divider"></div>
+      <div class="gear-block"><small>GEAR</small><strong id="gear-display">N</strong><span class="rpm"><i id="rpm-fill"></i></span><small class="rpm-label">RPM <b id="rpm-value">1.2</b></small></div>
+      <div class="hud-divider hud-hide"></div><div class="ride-stat hud-hide"><small>RIDE DISTANCE</small><strong><span id="distance">0.0</span> <em>km</em></strong></div>
+    </section>
+
+    <nav class="quick-menu">
+      <button data-panel="garage"><span>▧</span>GARAGE</button>
+      <button data-panel="dealer"><span>＋</span>DEALERSHIP</button>
+      <button data-panel="tuning"><span>⚙</span>TUNING</button>
+      <button id="cycle-btn"><span>◷</span><b id="time-label">DAYTIME</b></button>
+    </nav>
+
+    <div class="control-hint" id="control-hint"><span>WASD</span> DRIVE <i>·</i> <span>SPACE</span> BRAKE <i>·</i> <span>SHIFT / CTRL</span> GEAR</div>
+    <section class="controls" id="controls">
+      <div class="steer-group">
+        <button class="control-btn steer" data-control="left" aria-label="Steer left">‹</button>
+        <button class="control-btn steer" data-control="right" aria-label="Steer right">›</button>
+      </div>
+      <div class="action-group">
+        <button class="control-btn small-action" data-control="clutch"><span>CLUTCH</span><b>HOLD</b></button>
+        <button class="control-btn small-action" data-control="wheelie"><span>WHEELIE</span><b>↟</b></button>
+        <button class="control-btn small-action" data-control="front"><span>FRONT</span><b>●</b></button>
+        <button class="control-btn small-action" data-control="rear"><span>REAR</span><b>●</b></button>
+        <button class="control-btn shift-btn" data-control="down"><b>−</b><span>GEAR</span></button>
+        <button class="control-btn shift-btn" data-control="up"><b>＋</b><span>GEAR</span></button>
+        <button class="control-btn brake" data-control="brake"><span>BRAKE</span><b>■</b></button>
+        <button class="control-btn accelerate" data-control="accelerate"><span>THROTTLE</span><b>▲</b></button>
+      </div>
+    </section>
+    <div class="vehicle-nameplate"><span class="vehicle-icon">◈</span><div><small>YOUR RIDE</small><strong id="vehicle-name">KAWASAKI Z750</strong></div><span class="vehicle-condition">● READY</span></div>
+
+    <div class="toast" id="toast"></div>
+    <div class="overlay hidden" id="overlay">
+      <section class="panel">
+        <button class="close-btn" id="close-panel">×</button>
+        <div class="panel-eyebrow" id="panel-eyebrow">YOUR COLLECTION</div><h1 id="panel-title">Garage</h1><p class="panel-desc" id="panel-desc">Choose a ride and get back on the road.</p>
+        <div class="panel-content" id="panel-content"></div>
+      </section>
+    </div>
+    <div class="paused hidden" id="paused"><div class="pause-card"><span class="pause-mark">Ⅱ</span><h2>Ride paused</h2><p>The streets of Tunis will be waiting.</p><button id="resume-btn">RESUME RIDE <b>→</b></button></div></div>
+    <div class="loading" id="loading"><div class="loader-mark">TM<span>✦</span></div><div class="loader-line"><i></i></div><small>WAKING UP TUNIS...</small></div>
+  </main>
+  <script type="module" src="game.js"></script>
+</body>
+</html>
