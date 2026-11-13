@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+  <meta name="theme-color" content="#07141b">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23d8f36a'/%3E%3Ctext x='32' y='42' text-anchor='middle' font-family='sans-serif' font-weight='800' font-size='25' fill='%2315211a'%3ERT%3C/text%3E%3C/svg%3E">
+  <title>Ride Tunisia — Free Ride</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main id="game">
+    <canvas id="scene"></canvas>
+    <div class="vignette"></div>
+    <header class="topbar">
+      <button class="icon-btn map-trigger" id="mapBtn" aria-label="Open map"><span class="map-glyph">⌖</span></button>
+      <div class="brand"><div class="brand-mark">RT</div><div><b>RIDE TUNISIA</b><small>FREE RIDE · TUNIS</small></div></div>
+      <div class="top-right"><div class="clock"><span class="live-dot"></span><span id="clock">16:42</span><small>LOCAL TIME</small></div><button class="icon-btn" id="settingsBtn" aria-label="Settings">⚙</button></div>
+    </header>
+    <div class="welcome" id="welcome"><span>✦</span><div><small>BIENVENUE À</small><b>TUNIS GOVERNORATE</b></div></div>
+    <section class="vehicle-card"><div class="vehicle-class" id="vehicleClass">NAKED · 750 CC</div><div class="vehicle-name" id="vehicleName">Kawasaki <strong>Z750</strong></div><div class="vehicle-meta"><span id="vehicleMeta">2008 · 6 SPEED</span><i></i><span id="driveModeLabel">MANUAL</span></div></section>
+    <div class="speed-block"><div class="speed-line"><strong id="speed">000</strong><span>KM/H</span></div><div class="speed-track"><i id="speedBar"></i></div><div class="gear-row"><span>GEAR</span><b id="gear">N</b><span id="rpmLabel">1,250 RPM</span></div></div>
+    <div class="objective"><span class="objective-pin">✦</span><div><small>FREE RIDE</small><b id="locationLabel">La Marsa · Avenue Habib Bourguiba</b></div><button id="gpsBtn">GPS ↗</button></div>
+    <div class="right-actions"><button class="action-btn" id="cameraBtn"><span>◉</span><small>CAMERA</small></button><button class="action-btn" id="vehicleBtn"><span>⇄</span><small>VEHICLE</small></button><button class="action-btn" id="garageBtn"><span>⚒</span><small>GARAGE</small></button></div>
+    <div class="notice" id="notice"></div>
+    <div class="minimap" id="miniMap"><canvas id="mapCanvas" width="180" height="180"></canvas><div class="map-top"><span>●</span> LA MARSA <b>↗</b></div><div class="map-player">▲</div><div class="map-scale">200 m</div></div>
+    <div class="bottom-hud"><div class="assist"><span class="assist-icon">◈</span><span id="weather">CLEAR · 24°C</span><i></i><span>TRAFFIC <b>LIGHT</b></span></div><div class="fps" id="fps">60 FPS</div></div>
+    <div class="controls">
+      <div class="steering"><button class="pedal steer" data-control="left"><span>‹</span></button><button class="pedal steer" data-control="right"><span>›</span></button><small>STEER</small></div>
+      <div class="mobile-actions"><button id="hornBtn" class="round-control">♬</button><button id="handbrakeBtn" class="round-control">⛔</button></div>
+      <div class="pedals"><button class="pedal brake" data-control="brake"><span>▮</span><small>BRAKE</small></button><button class="pedal throttle" data-control="throttle"><span>▲</span><small>THROTTLE</small></button></div>
+    </div>
+    <div class="shift-controls"><button id="downGear">−</button><div><small>SHIFT</small><b>GEAR</b></div><button id="upGear">+</button></div>
+    <div class="toast" id="toast"></div>
+    <div class="overlay" id="overlay">
+      <div class="panel" id="panel"><button class="close" id="closePanel">×</button><div id="panelContent"></div></div>
+    </div>
+  </main>
+  <script type="module" src="game.js"></script>
+</body>
+</html>
